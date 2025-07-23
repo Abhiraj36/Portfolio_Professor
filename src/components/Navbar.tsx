@@ -1,5 +1,3 @@
-// src/components/Navbar.tsx
-
 'use client';
 
 import Link from 'next/link';
@@ -10,7 +8,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-white dark:bg-gray-900 shadow-md sticky top-0 z-50">
+    <nav className="animated-gradient bg-gradient-to-r from-white via-gray-100 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 bg-opacity-80 backdrop-blur-md shadow-md sticky top-0 z-50 transition-all duration-300">
       <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
         {/* Left: Title */}
         <div>
@@ -22,35 +20,51 @@ const Navbar = () => {
           </p>
         </div>
 
-        {/* Right: Hamburger */}
+        {/* Hamburger Button (Mobile) */}
         <button
-          className="md:hidden text-gray-800 dark:text-gray-200"
+          className="md:hidden text-gray-800 dark:text-gray-200 transition-transform hover:scale-110"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
         >
           {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
 
-        {/* Links - desktop */}
-        <div className="hidden md:flex flex-wrap gap-4 text-sm text-gray-700 dark:text-gray-300 font-medium">
-          <Link href="/" className="hover:text-blue-600 dark:hover:text-blue-400 transition">Home</Link>
-          <Link href="/about" className="hover:text-blue-600 dark:hover:text-blue-400 transition">About</Link>
-          <Link href="/achievements" className="hover:text-blue-600 dark:hover:text-blue-400 transition">Achievements</Link>
-          <Link href="/publications" className="hover:text-blue-600 dark:hover:text-blue-400 transition">Publications</Link>
-          <Link href="/gallery" className="hover:text-blue-600 dark:hover:text-blue-400 transition">Gallery</Link>
-          <Link href="/contact" className="hover:text-blue-600 dark:hover:text-blue-400 transition">Contact</Link>
+        {/* Desktop Links */}
+        <div className="hidden md:flex flex-wrap gap-6 text-sm font-medium text-gray-700 dark:text-gray-300">
+          {['/', '/about', '/achievements', '/publications', '/gallery', '/contact'].map((path, index) => {
+            const name = path === '/' ? 'Home' : path.replace('/', '').replace(/^\w/, c => c.toUpperCase());
+            return (
+              <Link
+                key={index}
+                href={path}
+                className="relative group transition"
+              >
+                <span className="group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                  {name}
+                </span>
+                <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-blue-600 dark:bg-blue-400 transition-all group-hover:w-full" />
+              </Link>
+            );
+          })}
         </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden px-4 pb-4 space-y-2 text-sm text-gray-700 dark:text-gray-300 font-medium">
-          <Link href="/" className="block hover:text-blue-600 dark:hover:text-blue-400" onClick={() => setIsOpen(false)}>Home</Link>
-          <Link href="/about" className="block hover:text-blue-600 dark:hover:text-blue-400" onClick={() => setIsOpen(false)}>About</Link>
-          <Link href="/achievements" className="block hover:text-blue-600 dark:hover:text-blue-400" onClick={() => setIsOpen(false)}>Achievements</Link>
-          <Link href="/publications" className="block hover:text-blue-600 dark:hover:text-blue-400" onClick={() => setIsOpen(false)}>Publications</Link>
-          <Link href="/gallery" className="block hover:text-blue-600 dark:hover:text-blue-400" onClick={() => setIsOpen(false)}>Gallery</Link>
-          <Link href="/contact" className="block hover:text-blue-600 dark:hover:text-blue-400" onClick={() => setIsOpen(false)}>Contact</Link>
+        <div className="md:hidden mx-4 mb-4 p-4 space-y-2 rounded-lg bg-white/90 dark:bg-gray-800/90 border border-gray-200 dark:border-gray-700 shadow-md text-sm font-medium text-gray-800 dark:text-gray-300 transition-all backdrop-blur-md">
+          {['/', '/about', '/achievements', '/publications', '/gallery', '/contact'].map((path, index) => {
+            const name = path === '/' ? 'Home' : path.replace('/', '').replace(/^\w/, c => c.toUpperCase());
+            return (
+              <Link
+                key={index}
+                href={path}
+                onClick={() => setIsOpen(false)}
+                className="block hover:text-blue-600 dark:hover:text-blue-400 hover:scale-[1.02] transition-transform"
+              >
+                {name}
+              </Link>
+            );
+          })}
         </div>
       )}
     </nav>
@@ -58,4 +72,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-

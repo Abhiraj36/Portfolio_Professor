@@ -1,4 +1,7 @@
 // src/app/publications/page.tsx
+'use client';
+import { motion } from "framer-motion";
+
 
 type Publication = {
   title: string;
@@ -135,35 +138,47 @@ const publications: Publication[] = [
 
 export default function PublicationsPage() {
   return (
-    <div className="max-w-5xl mx-auto px-4 py-10 text-gray-300">
-      <h1 className="text-4xl font-bold text-white border-b border-gray-700 pb-4 mb-8">
-        Research Publications
-      </h1>
+    <main className="min-h-screen animated-gradient bg-gradient-to-br from-purple-100 via-blue-100 to-pink-100 dark:from-black dark:via-gray-900 dark:to-gray-800 text-slate-900 dark:text-gray-100 px-4 py-10">
+      <div className="max-w-5xl mx-auto">
+        <h1 className="text-4xl font-bold text-slate-900 dark:text-white border-b border-slate-300 dark:border-gray-700 pb-4 mb-8">
+          Research Publications
+        </h1>
 
-      <div className="space-y-6">
-        {publications.map((pub, idx) => (
-          <div
-            key={idx}
-            className="bg-gray-800/50 border border-gray-700 rounded-xl p-5 hover:shadow-lg transition"
-          >
-            <h2 className="text-xl font-semibold text-blue-400">{pub.title}</h2>
-            <p className="mt-1 text-sm italic text-gray-400">{pub.authors}</p>
-            <p className="text-sm text-gray-400">
-              <span className="font-medium text-gray-300">Published in:</span> {pub.journal} ({pub.year})
-            </p>
-            {pub.doi && (
-              <a
-                href={pub.doi}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block mt-2 text-sm text-blue-500 hover:underline"
-              >
-                🔗 View Publication
-              </a>
-            )}
-          </div>
-        ))}
+        <div className="space-y-6">
+          {publications.map((pub, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: idx * 0.05, duration: 0.5 }}
+              className="bg-white dark:bg-gray-800 border border-slate-200 dark:border-gray-700 rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-200"
+            >
+              <h2 className="text-xl font-semibold text-blue-700 dark:text-blue-400">
+                {pub.title}
+              </h2>
+              <p className="mt-1 text-sm italic text-slate-600 dark:text-gray-400">
+                {pub.authors}
+              </p>
+              <p className="text-sm text-slate-700 dark:text-gray-400">
+                <span className="font-medium text-slate-800 dark:text-gray-300">
+                  Published in:
+                </span>{" "}
+                {pub.journal} ({pub.year})
+              </p>
+              {pub.doi && (
+                <a
+                  href={pub.doi}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block mt-2 text-sm text-blue-600 dark:text-blue-400 hover:underline"
+                >
+                  🔗 View Publication
+                </a>
+              )}
+            </motion.div>
+          ))}
+        </div>
       </div>
-    </div>
+    </main>
   );
 }

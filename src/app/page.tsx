@@ -1,10 +1,9 @@
-// src/app/page.tsx or src/app/home/page.tsx
-
-import { ArrowRight, BookOpen, Calendar, Users, Globe } from "lucide-react";
+import { ArrowRight, BookOpen, Calendar, Users } from "lucide-react";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-gray-800 text-gray-100 flex items-center justify-center px-6 py-20">
+   <main className="min-h-screen animated-gradient bg-gradient-to-br from-purple-100 via-blue-100 to-pink-100 dark:from-black dark:via-gray-900 dark:to-gray-800 text-slate-900 dark:text-gray-100 flex items-center justify-center px-6 py-20 transition-colors duration-300">
+
       <div className="max-w-4xl mx-auto text-center space-y-10">
         
         {/* Hero Title */}
@@ -13,27 +12,27 @@ export default function Home() {
         </h1>
 
         {/* Subtitle */}
-        <h2 className="text-xl sm:text-2xl text-blue-400 font-medium">
+        <h2 className="text-xl sm:text-2xl text-blue-600 dark:text-blue-400 font-medium">
           Associate Professor, Department of Mechanical Engineering
         </h2>
 
         {/* Intro Paragraph */}
-        <p className="text-lg sm:text-xl leading-relaxed text-gray-300">
-          A dedicated academic and researcher with over <span className="text-white font-semibold">15 years of experience</span> in teaching and applied research across top institutions. Her research spans <span className="text-white font-semibold">renewable energy</span>, <span className="text-white font-semibold">solar drying systems</span>, <span className="text-white font-semibold">thermal storage</span>, <span className="text-white font-semibold">biofuels</span>, and <span className="text-white font-semibold">IoT for sustainability</span>.
+        <p className="text-lg sm:text-xl leading-relaxed text-slate-700 dark:text-gray-300">
+          A dedicated academic and researcher with over <span className="text-slate-900 dark:text-white font-semibold">15 years of experience</span> in teaching and applied research across top institutions. Her research spans <span className="text-slate-900 dark:text-white font-semibold">renewable energy</span>, <span className="text-slate-900 dark:text-white font-semibold">solar drying systems</span>, <span className="text-slate-900 dark:text-white font-semibold">thermal storage</span>, <span className="text-slate-900 dark:text-white font-semibold">biofuels</span>, and <span className="text-slate-900 dark:text-white font-semibold">IoT for sustainability</span>.
         </p>
 
         {/* Quick Stats */}
-        <div className="flex flex-wrap justify-center gap-6 text-gray-400">
+        <div className="flex flex-wrap justify-center gap-6 text-slate-600 dark:text-gray-400">
           <div className="flex items-center gap-2">
-            <BookOpen className="w-6 h-6 text-blue-400" />
+            <BookOpen className="w-6 h-6 text-blue-500 dark:text-blue-400" />
             <span>18+ Publications</span>
           </div>
           <div className="flex items-center gap-2">
-            <Calendar className="w-6 h-6 text-blue-400" />
+            <Calendar className="w-6 h-6 text-blue-500 dark:text-blue-400" />
             <span>15+ Years Experience</span>
           </div>
           <div className="flex items-center gap-2">
-            <Users className="w-6 h-6 text-blue-400" />
+            <Users className="w-6 h-6 text-blue-500 dark:text-blue-400" />
             <span>Supervisor & Mentor</span>
           </div>
         </div>
