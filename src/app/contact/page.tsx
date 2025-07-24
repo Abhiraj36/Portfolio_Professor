@@ -25,10 +25,10 @@ export default function ContactPage() {
           <div className="flex items-center gap-3">
             <Mail className="w-6 h-6 text-blue-600 shrink-0" />
             <a
-              href="mailto:lakshmi.durga@iittp.ac.in"
+              href="mailto:lakshmiratan2311@gmail.com "
               className="hover:underline hover:text-blue-700 dark:hover:text-blue-400 transition-colors duration-200 break-all"
             >
-              lakshmi.durga@iittp.ac.in
+              lakshmiratan2311@gmail.com
             </a>
           </div>
 
