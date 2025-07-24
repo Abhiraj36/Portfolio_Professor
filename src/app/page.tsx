@@ -13,7 +13,7 @@ export default function Home() {
 
         {/* Subtitle */}
         <h2 className="text-xl sm:text-2xl text-blue-600 dark:text-blue-400 font-medium">
-          Associate Professor, Department of Mechanical Engineering
+          Assistant Professor, Department of Mechanical Engineering
         </h2>
 
         {/* Intro Paragraph */}
