@@ -7,6 +7,16 @@ import { Menu, X } from 'lucide-react';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+const links = [
+  { path: '/', label: 'Home' },
+  { path: '/about', label: 'About' },
+  { path: '/achievements', label: 'Achievements' },
+  { path: '/publications', label: 'Publications' },
+  { path: '/gallery', label: 'Gallery' },
+  { path: '/blog', label: 'Blog' },      // 🔼 moved before Contact
+  { path: '/contact', label: 'Contact' } // 🔽 now last
+];
+
   return (
     <nav className="animated-gradient bg-gradient-to-r from-white via-gray-100 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 bg-opacity-80 backdrop-blur-md shadow-md sticky top-0 z-50 transition-all duration-300">
       <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
@@ -31,40 +41,34 @@ const Navbar = () => {
 
         {/* Desktop Links */}
         <div className="hidden md:flex flex-wrap gap-6 text-sm font-medium text-gray-700 dark:text-gray-300">
-          {['/', '/about', '/achievements', '/publications', '/gallery', '/contact'].map((path, index) => {
-            const name = path === '/' ? 'Home' : path.replace('/', '').replace(/^\w/, c => c.toUpperCase());
-            return (
-              <Link
-                key={index}
-                href={path}
-                className="relative group transition"
-              >
-                <span className="group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                  {name}
-                </span>
-                <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-blue-600 dark:bg-blue-400 transition-all group-hover:w-full" />
-              </Link>
-            );
-          })}
+          {links.map(({ path, label }) => (
+            <Link
+              key={path}
+              href={path}
+              className="relative group transition"
+            >
+              <span className="group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                {label}
+              </span>
+              <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-blue-600 dark:bg-blue-400 transition-all group-hover:w-full" />
+            </Link>
+          ))}
         </div>
       </div>
 
       {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden mx-4 mb-4 p-4 space-y-2 rounded-lg bg-white/90 dark:bg-gray-800/90 border border-gray-200 dark:border-gray-700 shadow-md text-sm font-medium text-gray-800 dark:text-gray-300 transition-all backdrop-blur-md">
-          {['/', '/about', '/achievements', '/publications', '/gallery', '/contact'].map((path, index) => {
-            const name = path === '/' ? 'Home' : path.replace('/', '').replace(/^\w/, c => c.toUpperCase());
-            return (
-              <Link
-                key={index}
-                href={path}
-                onClick={() => setIsOpen(false)}
-                className="block hover:text-blue-600 dark:hover:text-blue-400 hover:scale-[1.02] transition-transform"
-              >
-                {name}
-              </Link>
-            );
-          })}
+          {links.map(({ path, label }) => (
+            <Link
+              key={path}
+              href={path}
+              onClick={() => setIsOpen(false)}
+              className="block hover:text-blue-600 dark:hover:text-blue-400 hover:scale-[1.02] transition-transform"
+            >
+              {label}
+            </Link>
+          ))}
         </div>
       )}
     </nav>
@@ -72,3 +76,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
