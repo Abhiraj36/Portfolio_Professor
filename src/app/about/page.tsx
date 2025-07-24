@@ -1,3 +1,5 @@
+
+import Image from "next/image";
 import {
   BookOpen,
   GraduationCap,
@@ -12,14 +14,36 @@ export default function AboutPage() {
       <div className="max-w-5xl mx-auto space-y-12">
 
         {/* Header */}
-        <header className="text-center space-y-4">
-          <h1 className="text-4xl md:text-5xl font-bold">
-            About Dr. V. N. Lakshmi Durga
-          </h1>
-          <p className="text-lg text-slate-700 dark:text-gray-300">
-            Pioneering academic and researcher in sustainable energy systems
-          </p>
-        </header>
+        <header className="flex flex-col md:flex-row items-center gap-8 md:gap-12 text-center md:text-left">
+  {/* Profile Image */}
+  <div className="flex-shrink-0">
+    <div className="w-48 h-48 rounded-full overflow-hidden border-4 border-blue-500 shadow-lg transform transition-transform duration-300 hover:scale-105">
+  <Image
+    src="/display_picture.jpg"
+    alt="Dr. V. N. Lakshmi Durga"
+    width={192}
+    height={192}
+    className="object-cover object-[60%_top] w-full h-full"
+    priority
+  />
+</div>
+
+  </div>
+
+  {/* Text Content */}
+  <div className="space-y-3">
+    <h1 className="text-4xl md:text-5xl font-bold">
+      Dr. V. N. Lakshmi Durga
+    </h1>
+    <h2 className="text-lg md:text-xl text-blue-600 dark:text-blue-400 font-medium">
+      Assistant Professor, Department of Mechanical Engineering
+    </h2>
+    <p className="text-base md:text-lg text-slate-700 dark:text-gray-300">
+      Pioneering academic and researcher in sustainable energy systems
+    </p>
+  </div>
+</header>
+
 
         {/* Academic & Research Summary */}
         <section className="space-y-6 text-lg leading-relaxed text-slate-700 dark:text-gray-300">
