@@ -26,7 +26,7 @@ const links = [
             Dr. V. N. Lakshmi Durga
           </h1>
           <p className="text-sm text-gray-600 dark:text-gray-400 hidden sm:block">
-            Assistant Professor, Mechanical Engineering
+            Associate Professor, Mechanical Engineering
           </p>
         </div>
 

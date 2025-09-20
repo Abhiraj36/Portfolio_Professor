@@ -36,7 +36,7 @@ export default function AboutPage() {
       Dr. V. N. Lakshmi Durga
     </h1>
     <h2 className="text-lg md:text-xl text-blue-600 dark:text-blue-400 font-medium">
-      Assistant Professor, Department of Mechanical Engineering
+      Associate Professor, Department of Mechanical Engineering
     </h2>
     <p className="text-base md:text-lg text-slate-700 dark:text-gray-300">
       Pioneering academic and researcher in sustainable energy systems
