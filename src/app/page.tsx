@@ -27,7 +27,7 @@ export default function Home() {
           </h1>
 
           <h2 className="text-xl sm:text-2xl text-blue-600 dark:text-blue-400 font-medium">
-            Assistant Professor, Department of Mechanical Engineering
+            Associate Professor, Department of Mechanical Engineering
           </h2>
 
           <p className="text-lg sm:text-xl leading-relaxed text-slate-700 dark:text-gray-300">
